@@ -9,10 +9,10 @@ import java.util.List;
 
 public class BlockRegistry {
     /*-------------------------------- constants --------------------------------*/
-    public static final Block BONFIRE = register(Constants.BLOCK_BONFIRE, new BonfireBlock());
+    public static final List<Block> BLOCKS = Lists.newArrayList();
+    public static final Block BONFIRE = register(Constants.BONFIRE, new BonfireBlock());
 
     /*-------------------------------- automation --------------------------------*/
-    public static final List<Block> BLOCKS = Lists.newArrayList();
     public static Block register(ResourceLocation tag, Block block) {
         block.setRegistryName(tag);
         BLOCKS.add(block);

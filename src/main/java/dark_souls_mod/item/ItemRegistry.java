@@ -8,9 +8,9 @@ import java.util.List;
 
 public class ItemRegistry {
     /*-------------------------------- constants --------------------------------*/
+    public static final List<Item> ITEMS = Lists.newArrayList();
 
     /*-------------------------------- automation --------------------------------*/
-    public static final List<Item> ITEMS = Lists.newArrayList();
     public static Item register(ResourceLocation tag, Item item) {
         item.setRegistryName(tag);
         ITEMS.add(item);
