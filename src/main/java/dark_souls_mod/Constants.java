@@ -7,6 +7,7 @@ public class Constants {
     public static final String MOD_ID = "dark_souls_mod";
 
     public static final ResourceLocation BONFIRE = create("bonfire");
+    public static final String NBT_ID = createNBT("id");
 
     /*-------------------------------- automation --------------------------------*/
     private static ResourceLocation create(String name) {

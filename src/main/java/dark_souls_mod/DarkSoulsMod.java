@@ -1,6 +1,8 @@
 package dark_souls_mod;
 
 import dark_souls_mod.block.BlockRegistry;
+import dark_souls_mod.capability.PlayerCapability;
+import dark_souls_mod.capability.WorldCapability;
 import dark_souls_mod.item.ItemRegistry;
 import dark_souls_mod.tileentity.TileEntityTypeRegistry;
 import net.minecraft.block.Block;
@@ -28,6 +30,8 @@ public class DarkSoulsMod {
      * common_pre_init
      */
     private void setupCommon(final FMLCommonSetupEvent event) {
+        PlayerCapability.register();
+        WorldCapability.register();
     }
 
     /**
