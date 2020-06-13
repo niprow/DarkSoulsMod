@@ -47,7 +47,7 @@ public class PlayerCapability
         {
             return (CompoundNBT) PLAYER_MANAGER_CAPABILITY.getStorage()
                     .writeNBT(PLAYER_MANAGER_CAPABILITY,
-                            instance.orElseThrow(() -> new IllegalArgumentException("LazyOptional can not be null")),
+                            instance.orElseThrow(() -> new IllegalArgumentException("LazyOptional cannot be null")),
                             null);
         }
 
@@ -56,7 +56,7 @@ public class PlayerCapability
         {
             PLAYER_MANAGER_CAPABILITY.getStorage()
                     .readNBT(PLAYER_MANAGER_CAPABILITY,
-                            instance.orElseThrow(() -> new IllegalArgumentException("LazyOptional con no be null")),
+                            instance.orElseThrow(() -> new IllegalArgumentException("LazyOptional cannot be null")),
                             null,
                             nbt);
         }

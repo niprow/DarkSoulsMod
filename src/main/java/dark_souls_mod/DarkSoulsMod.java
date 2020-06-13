@@ -3,12 +3,19 @@ package dark_souls_mod;
 import dark_souls_mod.block.BlockRegistry;
 import dark_souls_mod.capability.PlayerCapability;
 import dark_souls_mod.capability.WorldCapability;
+import dark_souls_mod.inventory.container.ContainerTypeRegistry;
 import dark_souls_mod.item.ItemRegistry;
 import dark_souls_mod.tileentity.TileEntityTypeRegistry;
 import net.minecraft.block.Block;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.inventory.container.ContainerType;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntityType;
+import net.minecraft.world.World;
+import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.AttachCapabilitiesEvent;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -41,6 +48,19 @@ public class DarkSoulsMod {
     }
 
     public static class ForgeEvents {
+        @SubscribeEvent
+        public static void onEntityCapabilityAttaching(final AttachCapabilitiesEvent<Entity> event) {
+            if(event.getObject() instanceof PlayerEntity) {
+                event.addCapability(Constants.PLAYER_CAPABILITY, new PlayerCapability.Capability());
+            }
+        }
+
+        @SubscribeEvent
+        public static void onWorldCapabilityAttaching(final AttachCapabilitiesEvent<World> event) {
+            if(event.getObject() instanceof ServerWorld) {
+                event.addCapability(Constants.WORLD_CAPABILITY, new WorldCapability.Capability());
+            }
+        }
     }
 
     public static class ModEvents {
@@ -57,6 +77,11 @@ public class DarkSoulsMod {
         @SubscribeEvent
         public static void onTileEntityTypeRegistry(final RegistryEvent.Register<TileEntityType<?>> event) {
             event.getRegistry().registerAll(TileEntityTypeRegistry.getAll());
+        }
+
+        @SubscribeEvent
+        public static void onContainerTypeRegistry(final RegistryEvent.Register<ContainerType<?>> event) {
+            event.getRegistry().registerAll(ContainerTypeRegistry.getAll());
         }
     }
 }
