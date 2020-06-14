@@ -13,6 +13,7 @@ public class ItemRegistry {
     /*-------------------------------- constants --------------------------------*/
     public static final List<Item> ITEMS = Lists.newArrayList();
     public static final Item BONFIRE = register(Constants.BONFIRE, new BlockItem(BlockRegistry.BONFIRE, new Item.Properties().maxStackSize(1)));
+    public static final Item TEST_ITEM = register(new ResourceLocation("jfjf"), new BlockItem(BlockRegistry.TEST_BLOCK, new Item.Properties()));
 
     /*-------------------------------- automation --------------------------------*/
     public static Item register(ResourceLocation tag, Item item) {

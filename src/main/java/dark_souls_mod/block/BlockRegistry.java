@@ -11,6 +11,7 @@ public class BlockRegistry {
     /*-------------------------------- constants --------------------------------*/
     public static final List<Block> BLOCKS = Lists.newArrayList();
     public static final Block BONFIRE = register(Constants.BONFIRE, new BonfireBlock());
+    public static final Block TEST_BLOCK = register(new ResourceLocation("dark_souls_mod:test_block"), new TestBlock());
 
     /*-------------------------------- automation --------------------------------*/
     public static Block register(ResourceLocation tag, Block block) {

@@ -4,9 +4,11 @@ import dark_souls_mod.block.BlockRegistry;
 import dark_souls_mod.capability.PlayerCapability;
 import dark_souls_mod.capability.WorldCapability;
 import dark_souls_mod.inventory.container.ContainerTypeRegistry;
+import dark_souls_mod.inventory.container.screen.BonfireScreen;
 import dark_souls_mod.item.ItemRegistry;
 import dark_souls_mod.tileentity.TileEntityTypeRegistry;
 import net.minecraft.block.Block;
+import net.minecraft.client.gui.ScreenManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.container.ContainerType;
@@ -45,6 +47,7 @@ public class DarkSoulsMod {
      * client_pre_init
      */
     private void setupClient(final FMLClientSetupEvent event) {
+        ScreenManager.registerFactory(ContainerTypeRegistry.BONFIRE_CONTAINER_TYPE, BonfireScreen::new);
     }
 
     public static class ForgeEvents {

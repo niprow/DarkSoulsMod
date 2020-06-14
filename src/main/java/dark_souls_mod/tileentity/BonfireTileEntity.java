@@ -42,6 +42,9 @@ public class BonfireTileEntity extends TileEntity implements INamedContainerProv
     @Nullable
     @Override
     public Container createMenu(int id, @Nonnull PlayerInventory player_inventory, @Nonnull PlayerEntity player_entity) {
+        System.out.println("it iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii");
         return new BonfireContainer(id, player_inventory.player);
     }
+
+
 }
