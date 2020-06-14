@@ -8,6 +8,6 @@ public class Foods {
     public static final Food FULL_ESTUS_FLASK = new Food.Builder().effect(Foods::getEstusEffect, 1.0f).build();
 
     private static EffectInstance getEstusEffect() {
-        return new EffectInstance(Effects.INSTANT_HEALTH, 0, 6);
+        return new EffectInstance(Effects.INSTANT_HEALTH, 1, 6);
     }
 }
