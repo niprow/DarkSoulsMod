@@ -23,6 +23,7 @@ public class Constants {
     public static final String NBT_LIT_BONFIRES_SIZE = createNBT("lit_bonfires_size");
     public static final String NBT_LIT_BONFIRES_KEY = createNBT("lit_bonfires_key_");
     public static final String NBT_LIT_BONFIRES_VALUE = createNBT("lit_bonfires_value_");
+    public static final String NBT_ESTUS_LVL = createNBT("estus_lvl");
 
     public static final TranslationTextComponent TLT_CONTAINER_BONFIRE = createTranslation("container", "bonfire");
 

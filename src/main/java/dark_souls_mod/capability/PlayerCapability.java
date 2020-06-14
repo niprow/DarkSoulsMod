@@ -1,5 +1,6 @@
 package dark_souls_mod.capability;
 
+import dark_souls_mod.Constants;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.nbt.INBT;
@@ -14,6 +15,17 @@ import javax.annotation.Nullable;
 
 public class PlayerCapability
 {
+    /*-------------------------------- estus --------------------------------*/
+    private int estus_level = 0; //up to 10
+
+    public int getEstusLevel() {
+        return this.estus_level;
+    }
+
+    public float getEstusFactor() {
+        return (float) this.estus_level / 10.0f;
+    }
+
     /*-------------------------------- capability --------------------------------*/
     public static void register()
     {
@@ -69,13 +81,16 @@ public class PlayerCapability
         @Override
         public INBT writeNBT(net.minecraftforge.common.capabilities.Capability<PlayerCapability> capability, PlayerCapability instance, Direction side)
         {
-            return new CompoundNBT();
+            CompoundNBT compound = new CompoundNBT();
+            compound.putInt(Constants.NBT_ESTUS_LVL, instance.estus_level);
+            return compound;
         }
 
         @Override
         public void readNBT(net.minecraftforge.common.capabilities.Capability<PlayerCapability> capability, PlayerCapability instance, Direction side, INBT nbt)
         {
-
+            CompoundNBT compound = (CompoundNBT) nbt;
+            instance.estus_level = compound.getInt(Constants.NBT_ESTUS_LVL);
         }
     }
 }
