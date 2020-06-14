@@ -4,6 +4,7 @@ import com.google.common.collect.Maps;
 import dark_souls_mod.Constants;
 import dark_souls_mod.capability.data.Bonfire;
 import dark_souls_mod.capability.data.ExactBlockPos;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.nbt.INBT;
 import net.minecraft.util.Direction;
