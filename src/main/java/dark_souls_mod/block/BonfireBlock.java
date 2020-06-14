@@ -41,14 +41,12 @@ public class BonfireBlock extends Block {
     @Nonnull
     @Override
     public ActionResultType onBlockActivated(@Nonnull BlockState state, @Nonnull World world, @Nonnull BlockPos pos, @Nonnull PlayerEntity player, @Nonnull Hand handIn, @Nonnull BlockRayTraceResult hit) {
-        if (world.isRemote) {
-            return ActionResultType.PASS;
-        } else {
+        if (!world.isRemote) {
             TileEntity tile_entity = world.getTileEntity(pos);
-            if(tile_entity instanceof BonfireTileEntity) {
+            if (tile_entity instanceof BonfireTileEntity) {
                 player.openContainer((INamedContainerProvider) tile_entity);
             }
-            return ActionResultType.SUCCESS;
         }
+        return ActionResultType.SUCCESS;
     }
 }
