@@ -8,6 +8,8 @@ public class Constants {
     public static final String MOD_ID = "dark_souls_mod";
 
     public static final ResourceLocation BONFIRE = create("bonfire");
+    public static final ResourceLocation FULL_ESTUS_FLASK = create("full_estus_flask");
+    public static final ResourceLocation EMPTY_ESTUS_FLASK = create("empty_estus_flask");
 
     public static final ResourceLocation WORLD_CAPABILITY = create("world_capability");
     public static final ResourceLocation PLAYER_CAPABILITY = create("player_capability");
