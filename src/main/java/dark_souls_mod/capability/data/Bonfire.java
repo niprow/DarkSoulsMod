@@ -1,6 +1,7 @@
 package dark_souls_mod.capability.data;
 
 import dark_souls_mod.Constants;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.util.ResourceLocation;
 
@@ -25,5 +26,13 @@ public class Bonfire {
 
     public static Bonfire read(CompoundNBT nbt) {
         return new Bonfire(nbt.getString(Constants.NBT_NAME), new ExactBlockPos(nbt.getInt(Constants.NBT_POS_X), nbt.getInt(Constants.NBT_POS_Y), nbt.getInt(Constants.NBT_POS_Z), new ResourceLocation(nbt.getString(Constants.NBT_DIMENSION_KEY))));
+    }
+
+    public void spawnPlayer(PlayerEntity player) {
+        //TODO
+    }
+
+    public void setSpawnPoint(PlayerEntity player) {
+        //TODO
     }
 }

@@ -1,22 +1,22 @@
 package dark_souls_mod.item;
 
 import dark_souls_mod.capability.PlayerCapability;
-import dark_souls_mod.item.food.Foods;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.PotionItem;
+import net.minecraft.stats.Stats;
 import net.minecraft.world.World;
 
 import javax.annotation.Nonnull;
 
-public class FullEstusFlask extends Item {
+public class FullEstusFlask extends PotionItem {
     public FullEstusFlask() {
         super(new Item.Properties()
                 .maxStackSize(15)
                 .containerItem(ItemRegistry.EMPTY_ESTUS_FLASK)
-                .food(Foods.FULL_ESTUS_FLASK)
         );
     }
 
@@ -30,7 +30,11 @@ public class FullEstusFlask extends Item {
             if(!((PlayerEntity) living_entity).inventory.addItemStackToInventory(new ItemStack(ItemRegistry.EMPTY_ESTUS_FLASK))) {
                 ((PlayerEntity) living_entity).dropItem(new ItemStack(ItemRegistry.EMPTY_ESTUS_FLASK), false);
             }
+            ((PlayerEntity) living_entity).addStat(Stats.ITEM_USED.get(this));
+            if (!((PlayerEntity) living_entity).abilities.isCreativeMode) {
+                stack.shrink(1);
+            }
         }
-        return super.onItemUseFinish(stack, world, living_entity);
+        return stack;
     }
 }
